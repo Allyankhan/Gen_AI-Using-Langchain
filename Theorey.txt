@@ -1,0 +1,385 @@
+Langchain is an open sourced framework for developing applicatins poweerred by LLms
+
+why we need langchain
+
+
+Components in Langchain
+1.Modals
+Core interfaces which helps interact with AI models
+Types:
+Embedding Models
+Chat Models
+Image Models
+
+2.prompts
+In LangChain, a prompt is simply the instruction or input you give to the AI model.
+
+It tells the AI:
+
+what to do
+how to behave
+what format to answer in
+Simple Example
+"Explain machine learning simply"
+
+That sentence is a prompt.
+
+The AI reads it and generates a response.
+
+Why Prompts Matter
+
+The same AI can behave completely differently depending on the prompt.
+
+Example:
+
+Prompt 1
+"Explain AI"
+Prompt 2
+"Explain AI to a 10-year-old using examples"
+
+Same model.
+Different output.
+
+So prompts are basically how you “control” the AI.
+
+Prompts in LangChain
+
+LangChain makes prompts:
+
+reusable
+dynamic
+structured
+
+Instead of hardcoding text every time.
+
+Basic Prompt Example
+from langchain.prompts import PromptTemplate
+
+prompt = PromptTemplate(
+    input_variables=["topic"],
+    template="Explain {topic} in simple words"
+)
+
+final_prompt = prompt.format(topic="Neural Networks")
+
+print(final_prompt)
+
+Output:
+
+Explain Neural Networks in simple words
+Why Use Prompt Templates?
+
+Because real AI apps need dynamic prompts.
+
+Imagine:
+
+different users
+different questions
+different languages
+
+Templates let you insert values automatically.
+
+Real-World Example
+
+Suppose you build an AI tutor.
+
+Template:
+
+"You are a helpful teacher.
+Explain {subject} to a beginner."
+
+User enters:
+
+subject = "Python loops"
+
+LangChain creates:
+
+"You are a helpful teacher.
+Explain Python loops to a beginner."
+Types of Prompts
+1. Simple Prompt
+
+Single instruction.
+
+"What is cybersecurity?"
+2. System Prompt
+
+Controls AI behavior.
+
+Example:
+
+"You are a medical assistant."
+
+This changes how the AI responds.
+
+3. Few-Shot Prompting
+
+You give examples first.
+
+Example:
+
+Input: 2+2
+Output: 4
+
+Input: 5+5
+Output: 10
+
+Then AI learns the pattern.
+
+4. Chat Prompts
+
+Used in chatbot conversations.
+
+Example:
+
+from langchain.prompts import ChatPromptTemplate
+
+Supports:
+
+user messages
+AI messages
+system instructions
+Prompt + Model Relationship
+Prompt
+   ↓
+Model
+   ↓
+Generated Response
+
+The prompt guides the model’s thinking.
+
+Why Prompt Engineering Became Important
+
+Because better prompts often give:
+
+better answers
+better accuracy
+fewer hallucinations
+cleaner formatting
+
+A weak prompt can make a powerful model perform badly.
+
+Example from RAG
+
+In RAG systems, prompts are critical.
+
+Example:
+
+"Answer ONLY using the provided documents.
+If the answer is missing, say 'I don't know.'"
+
+This reduces hallucinations.
+
+Big Picture
+
+In LangChain:
+
+Models = brain
+Prompts = instructions
+Chains = workflow
+Memory = conversation history
+Tools = external abilities
+
+Prompts are basically the language you use to communicate with the AI brain.
+
+
+3.Chains
+In LangChain, a chain means connecting multiple AI steps together into a workflow.
+
+Instead of doing only:
+
+Input → AI → Output
+
+a chain does:
+
+Input
+ ↓
+Step 1
+ ↓
+Step 2
+ ↓
+Step 3
+ ↓
+Final Output
+
+That’s why it’s called LangChain.
+
+Simple Real-Life Analogy
+
+Imagine making tea.
+
+You don’t just:
+
+Tea magically appears
+
+You follow steps:
+
+Boil water
+ ↓
+Add tea
+ ↓
+Add sugar
+ ↓
+Pour into cup
+
+A chain in LangChain works similarly:
+multiple connected operations.
+
+Basic AI Example
+
+Suppose user asks:
+
+"Write a blog about AI"
+
+Your chain might:
+
+Generate title
+ ↓
+Generate outline
+ ↓
+Write article
+ ↓
+Summarize article
+
+Each step feeds the next step.
+
+Why Chains Are Useful
+
+Real AI applications usually need:
+
+multiple prompts
+multiple models
+document retrieval
+formatting
+reasoning steps
+
+Chains organize all this cleanly.
+
+Simple LangChain Example
+from langchain.chains import LLMChain
+from langchain_openai import ChatOpenAI
+from langchain.prompts import PromptTemplate
+
+llm = ChatOpenAI(model="gpt-4o")
+
+prompt = PromptTemplate(
+    input_variables=["topic"],
+    template="Explain {topic} simply"
+)
+
+chain = LLMChain(llm=llm, prompt=prompt)
+
+response = chain.invoke({"topic": "Machine Learning"})
+
+print(response)
+What Happens Internally?
+User Input
+   ↓
+Prompt Template
+   ↓
+LLM
+   ↓
+Generated Response
+
+That whole pipeline is the chain.
+
+More Advanced Chains
+
+Chains can become much more powerful.
+
+Example RAG chain:
+
+User Question
+      ↓
+Convert to Embedding
+      ↓
+Search Vector Database
+      ↓
+Retrieve Relevant Chunks
+      ↓
+Insert into Prompt
+      ↓
+LLM Generates Final Answer
+
+That is a multi-step AI workflow.
+
+Types of Chains
+1. Sequential Chains
+
+Steps happen one after another.
+
+Example:
+
+Topic → Outline → Article → Summary
+2. Retrieval Chains
+
+Used in RAG systems.
+
+They:
+
+retrieve documents
+send context to AI
+generate grounded answers
+
+Very common in:
+
+PDF chatbots
+company assistants
+AI search
+3. Router Chains
+
+These decide which path to take.
+
+Example:
+
+If coding question → coding model
+If medical question → medical chain
+Chains vs Agents
+
+This confuses many beginners.
+
+Chains
+fixed workflow
+predictable steps
+
+Example:
+
+Step 1 → Step 2 → Step 3
+Agents
+dynamic decision-making
+AI chooses what to do
+
+Example:
+
+Think
+ ↓
+Choose tool
+ ↓
+Use tool
+ ↓
+Analyze result
+
+Agents are more autonomous.
+
+Big Picture
+
+In LangChain:
+
+Component	Purpose
+Models	AI brain
+Prompts	Instructions
+Chains	Workflow pipeline
+Memory	Remembers chats
+Tools	External abilities
+Agents	Autonomous reasoning
+Mental Model
+
+A chain is basically:
+
+AI workflow automation
+
+for language model applications.
+
+4.
+5.
+6.
