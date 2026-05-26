@@ -1,0 +1,34 @@
+PROFESSIONAL SUMMARY
+Aspiring AI/ML Engineer with hands-on experience in building machine learning, computer vision, and data-driven
+applications. Skilled in Python, data analysis, ML model development, and API integration. Passionate about
+delivering impactful AI solutions in real-world scenarios.
+
+TECHNICAL SKILLS
+• Languages: Python, JavaScript, C++, SQL
+• ML/DS Tools: Pandas, NumPy, Scikit-Learn, OpenCV, TensorFlow, PyTorch, Matplotlib
+• Frontend/Visualization: HTML, CSS, React.js, Plotly
+• Backend/Databases: Flask, Django (basic), MySQL
+• Other Tools: Git, GitHub, VS Code, XAMPP
+• Concepts: Machine Learning, Deep Learning, Computer Vision, Data Analysis, REST APIs, CRUD Oper
+ations
+EXPERIENCE
+Freelance Developer (Fiverr)
+• Delivered AI-powered web applications and automation solutions for clients
+• Built responsive data-driven dashboards and integrated ML models with web interfaces
+• Focused on real-world problem solving using machine learning and computer vision
+PROJECTS
+Real-Time Object Detection Speed Estimation System
+• Built a computer vision system to detect objects (cars, people, trains, bikes) from video streams
+• Estimated object speed in real-time using OpenCV and ML algorithms
+• Integrated model with a web-based interface for live monitoring
+Gmail Spam Detection Virus Scan System
+• Developed a real-time system to scan Gmail inbox for spam emails using machine learning
+• Integrated VirusTotal API to check email attachments for malware or viruses
+• Automated email fetching, classification, and alerting for suspicious messages
+• Demonstrates ability to combine ML models, API integration, and real-time data processing
+CERTIFICATIONS
+• Machine Learning Fundamentals– Coursera/FreeCodeCamp
+• Computer Vision with OpenCV– Online
+• Introduction to Databases– Meta
+• Version Control (Git)– Meta
+• Python OS Interaction– Google/Coursera
